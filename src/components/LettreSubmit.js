@@ -1,8 +1,9 @@
 import React from 'react';
 
-const LettreSubmit = () => {
+//Import du prop lettre
+const LettreSubmit = ({lettre}) => { 
     return(
-        <p className='user-letter'>ma lettre</p>
+        <p className='user-letter'>{lettre}</p>
     )
 }
 
