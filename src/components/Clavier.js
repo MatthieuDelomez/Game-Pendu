@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Compteur from './Compteur';
+import GestionMort from './GestionMort';
+
 
 const compteur = {
     userVie:{
-        vie:20
+        vie:1
     }
 }
 
@@ -57,6 +59,7 @@ class Clavier extends Component {
         }
     }
 
+
     /**
      * Méthode qui va soustraire le compteur de -1 à chaque lettre soumise
      */
@@ -69,10 +72,14 @@ class Clavier extends Component {
     }
 
 
+
+
+
     render(){
 
 
         return(
+
             <div className='letterBox'>
                 <form className='letter'
                       onSubmit={this.handleSubmit}>
@@ -89,7 +96,11 @@ class Clavier extends Component {
                     <Compteur
                         compteurMoinsUn={() => this.gestionLife(1)}/>
 
+                </form>
 
+                <form className='popupRestart'>
+                    <GestionMort
+                      vie={compteur.userVie.vie}/>
                 </form>
 
             </div>

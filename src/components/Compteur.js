@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 
 const Compteur = ({compteurMoinsUn}) => (
         <button onClick={compteurMoinsUn}
                 type='submit'>Soumettre votre lettre
       </button>
-        
+
 
 )
 

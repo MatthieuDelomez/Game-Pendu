@@ -3,6 +3,8 @@ import './App.css';
 import Clavier from './components/Clavier';
 import LettreSubmit from './components/LettreSubmit';
 
+
+
 class App extends Component {
 
     /**
@@ -10,7 +12,8 @@ class App extends Component {
      */
     state = {
       lettres: {}, //Objet vide
-      pseudo: this.props.match.params.pseudo // Gestion du pseudo dans le state grâce à react router
+      pseudo: this.props.match.params.pseudo, // Gestion du pseudo dans le state grâce à react router
+      
     }
 
     /**
@@ -28,7 +31,17 @@ class App extends Component {
       this.setState({lettres})
     }
 
+    handleShowMort = () => {
+      const isMort = !this.state.isMort;
+      this.setState({isMort});
+    }
+
+    
+
+
   render(){
+
+
 
     const lettres = Object
                           .keys(this.state.lettres)
@@ -40,14 +53,15 @@ class App extends Component {
                           ))
 
     return(
+
+
+
       <div className='box'>
         <div>
           <div className='lettres'>
             <div className='lettre'>
               {lettres}
             </div>
-            <LettreSubmit/> 
-            <LettreSubmit/> 
           </div>
         </div>
         
@@ -55,9 +69,11 @@ class App extends Component {
           length={1}
           addLettre={this.addLettre}
           pseudo={this.state.pseudo}>
-
-
         </Clavier>
+
+    
+
+
       </div>
     )
   }
