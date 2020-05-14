@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import './App.css';
 import Clavier from './components/Clavier';
 import LettreSubmit from './components/LettreSubmit';
+import mots from './donnees/mots';
+import GestionMots from './components/GestionMots';
+import Card from './components/Card';
+
 
 
 
@@ -13,7 +17,7 @@ class App extends Component {
     state = {
       lettres: {}, //Objet vide
       pseudo: this.props.match.params.pseudo, // Gestion du pseudo dans le state grâce à react router
-      
+      mots: {}
     }
 
     /**
@@ -36,12 +40,15 @@ class App extends Component {
       this.setState({isMort});
     }
 
-    
+    afficherMot = () => this.setState({mots})
+
 
 
   render(){
 
-
+    const cards = Object
+                        .keys(this.state.mots)
+                        .map(key => <Card detail={this.state.mots[key]}></Card>)
 
     const lettres = Object
                           .keys(this.state.lettres)
@@ -71,8 +78,15 @@ class App extends Component {
           pseudo={this.state.pseudo}>
         </Clavier>
 
-    
+        <div className='cards'>
+          {cards}
+        </div>
 
+      <div className='affichageMot'>
+        <GestionMots
+          afficherMot={this.afficherMot}>
+        </GestionMots>
+        </div>
 
       </div>
     )

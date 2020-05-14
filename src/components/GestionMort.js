@@ -4,7 +4,7 @@ import PopUpEngGame from './PopUpEngGame'
 
 const GestionMort = ({vie}) => {
 
-    if(vie === 0) {
+    if(vie === 0 || vie < 0) {
         return(
             <div className='fin'>
             <h2>You Are Dead !</h2>
